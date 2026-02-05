@@ -1,0 +1,42 @@
+---
+const links = [
+  { label: 'Privacy', href: '/privacy' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+    {links.map((item) => (
+      <a class="footer-link" href={item.href}>{item.label}</a>
+    ))}
+  </div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    z-index: 10;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .footer-link {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+  }
+  .footer-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+</style>

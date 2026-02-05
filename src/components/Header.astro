@@ -1,0 +1,186 @@
+---
+const navItems = [
+  { label: 'Meistä', href: '#meista' },
+  { label: 'Tapahtumat', href: '#tapahtumat' },
+  { label: 'Äänimuotokuva', href: '#aanimuotokuva' },
+  { label: 'Valotyö', href: '#valotyo' },
+  { label: 'Yhteystiedot', href: '#yhteystiedot' },
+];
+---
+
+<header class="header-wrap">
+<div class="header">
+  <a href="/" class="logo" aria-label="Häivä – Etusivu">Häivä</a>
+  <nav class="nav" aria-label="Päävalikko" id="main-nav">
+    <ul class="nav-list">
+      {navItems.map((item) => (
+        <li>
+          <a class="nav-link" href={item.href}>{item.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+  <button type="button" class="menu-toggle" aria-label="Avaa valikko" aria-expanded="false" aria-controls="main-nav" id="menu-toggle-btn">
+    <span class="menu-toggle-bar"></span>
+    <span class="menu-toggle-bar"></span>
+    <span class="menu-toggle-bar"></span>
+  </button>
+</div>
+</header>
+
+<script>
+  function setMenuOpen(open: boolean) {
+    const nav = document.querySelector('.nav');
+    const btn = document.querySelector('.menu-toggle');
+    if (!nav || !btn) return;
+    nav.classList.toggle('nav-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Sulje valikko' : 'Avaa valikko');
+  }
+  document.querySelector('.menu-toggle')?.addEventListener('click', () => {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    setMenuOpen(!nav.classList.contains('nav-open'));
+  });
+  document.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+</script>
+
+<style>
+  .header-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(5, 5, 8, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+  }
+  .nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-link {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-link:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 30;
+  }
+  .menu-toggle-bar {
+    width: 22px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+    .nav {
+      position: fixed;
+      top: 0;
+      right: 1.5rem;
+      bottom: 0;
+      width: auto;
+      padding: 4rem 0 1.5rem;
+      background: transparent;
+      transform: translateX(120%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+      z-index: 20;
+    }
+    .nav-open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-list {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: rgba(12, 12, 18, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 10px;
+    }
+    .nav-link {
+      font-size: 0.9rem;
+    }
+  }
+  @media (min-width: 769px) {
+    .nav {
+      display: block;
+      position: relative;
+      width: auto;
+      padding: 0;
+      background: transparent;
+      transform: none;
+    }
+    .nav-list {
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .nav-link {
+      position: relative;
+      font-size: 0.82rem;
+      opacity: 0.85;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.35rem;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.5);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      opacity: 0;
+    }
+    .nav-link:hover {
+      opacity: 1;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+</style>
