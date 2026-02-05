@@ -1,13 +1,14 @@
 ---
 // Shader-driven aurora background (Three.js + GLSL).
-import auroraShaderUrl from '../scripts/auroraShader.ts?url';
 ---
 
 <div class="aurora-wrap" aria-hidden="true">
   <div class="aurora-webgl" id="aurora-webgl"></div>
 </div>
 
-<script type="module" src={auroraShaderUrl}></script>
+<script>
+  import '../scripts/auroraShader.ts';
+</script>
 
 <style>
   .aurora-wrap {
