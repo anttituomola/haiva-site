@@ -10,8 +10,8 @@ Frontend-only band site for **Häivä**, domain [haiva.art](https://haiva.art).
 ## Features
 
 - **Aurora borealis background** — canvas-drawn, with mouse movement parallax on desktop and touch support on mobile
-- **Simple header** — logo + main nav (Music, About, Shows, Contact); hamburger menu on small screens
-- **Simple footer** — Privacy, Contact links
+- **Simple header** — logo + Finnish main nav (Meistä, Tapahtumat, Äänimuotokuva, Valotyö, Yhteystiedot); hamburger menu on small screens
+- **Minimal footer** — right-aligned © year + brand + "Sivusto tehty rakkaudella Tampereella"
 - **Placeholder sections** — hero, about text, Spotify embed area, image gallery, contact
 
 ## Commands
@@ -30,7 +30,7 @@ src/
 ├── components/
 │   ├── AuroraBackground.astro   # Aurora canvas + mouse/touch parallax
 │   ├── Header.astro             # Logo + nav + mobile menu
-│   └── Footer.astro             # Footer links
+│   └── Footer.astro             # Minimal footer text
 ├── layouts/
 │   └── BaseLayout.astro         # Layout with aurora, header, footer
 └── pages/
