@@ -1,8 +1,8 @@
 ---
-const links = [
-  { label: 'Privacy', href: '/privacy' },
-  { label: 'Contact', href: '#contact' },
+const links: { label: string; href: string }[] = [
 ];
+const year = new Date().getFullYear();
+const brand = 'Häivä';
 ---
 
 <footer class="footer">
@@ -10,6 +10,10 @@ const links = [
     {links.map((item) => (
       <a class="footer-link" href={item.href}>{item.label}</a>
     ))}
+    <div class="footer-text">
+      <span>© {year} {brand}</span>
+      <span>Sivusto tehty rakkaudella Tampereella</span>
+    </div>
   </div>
 </footer>
 
@@ -24,7 +28,7 @@ const links = [
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.75rem;
@@ -38,5 +42,15 @@ const links = [
   }
   .footer-link:hover {
     color: rgba(255, 255, 255, 0.8);
+  }
+  .footer-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: right;
   }
 </style>
