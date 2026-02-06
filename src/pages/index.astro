@@ -65,9 +65,25 @@ import AuroraBackground from '../components/AuroraBackground.astro';
   <section class="section section-contact" id="yhteystiedot">
     <div class="container">
       <h2 class="section-title">Yhteystiedot</h2>
-      <p class="prose">
-        Tähän voi lisätä sähköpostin, some-linkit ja mahdollisen yhteydenottolomakkeen.
-      </p>
+      <div class="contact-block">
+        <div class="contact-columns">
+          <div>
+            <p class="contact-label">Sähköpostit</p>
+            <div class="contact-links">
+              <a href="mailto:riia.muurimaa@gmail.com">riia.muurimaa@gmail.com</a>
+              <a href="mailto:salommatti@gmail.com">salommatti@gmail.com</a>
+            </div>
+          </div>
+          <div>
+            <p class="contact-label">Instagram</p>
+            <div class="contact-links">
+              <a href="https://www.instagram.com/poeseriia/" target="_blank" rel="noreferrer">instagram.com/poeseriia</a>
+              <a href="https://www.instagram.com/mattisalo_music/" target="_blank" rel="noreferrer">instagram.com/mattisalo_music</a>
+            </div>
+          </div>
+        </div>
+       
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -171,5 +187,38 @@ import AuroraBackground from '../components/AuroraBackground.astro';
     font-size: 0.8rem;
     color: var(--color-text-muted);
     margin: 0;
+  }
+  .contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .contact-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .contact-label {
+    margin: 0 0 0.75rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .contact-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .contact-links a:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+  .ig-embeds {
+    display: flex;
   }
 </style>
