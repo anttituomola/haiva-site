@@ -7,7 +7,7 @@ interface Props {
   description?: string;
 }
 
-const { title = 'Häivä', description = 'Häivä – band' } = Astro.props;
+const { title = 'Häivä', description = 'Almost like touching you' } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,6 +20,20 @@ const { title = 'Häivä', description = 'Häivä – band' } = Astro.props;
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://haiva.art/" />
+    <meta property="og:title" content="Häivä" />
+    <meta property="og:description" content="Almost like touching you" />
+    <meta property="og:image" content="https://haiva.art/haiva-logo-v5.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://haiva.art/" />
+    <meta property="twitter:title" content="Häivä" />
+    <meta property="twitter:description" content="Almost like touching you" />
+    <meta property="twitter:image" content="https://haiva.art/haiva-logo-v5.png" />
   </head>
   <body>
     <Header />
