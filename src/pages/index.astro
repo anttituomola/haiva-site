@@ -8,8 +8,8 @@ import AuroraBackground from '../components/AuroraBackground.astro';
     <AuroraBackground />
     <div class="aurora-fade"></div>
     <section class="hero" id="hero">
-      <h1 class="hero-title">Häivä</h1>
-      <p class="hero-tagline">Kokeellista ääntä ja valoa — haiva.art</p>
+      <img src="/haiva-logo-v5.png" alt="Häivä" class="hero-logo" />
+      <p class="hero-tagline">Almost like touching you</p>
     </section>
 
     <section class="section section-body" id="meista">
@@ -31,6 +31,23 @@ import AuroraBackground from '../components/AuroraBackground.astro';
     </section>
   </div>
 
+  <section class="section section-band" id="haiva-yhtye">
+    <div class="container">
+      <h2 class="section-title">Häivä-yhtye</h2>
+      <div class="band-image">
+        <img src="/haivakuva.jpeg" alt="Häivä-yhtye" />
+      </div>
+      <div class="band-links">
+        <a href="https://drive.google.com/file/d/16uiCQQcqEbI9H4x4JIbMI6cXIhYdssoD/view?usp=drive_link" target="_blank" rel="noreferrer">
+          Raakamateriaali – vain linkin haltijoille: Sanat loppuvat kesken
+        </a>
+        <a href="https://drive.google.com/file/d/1vExQyTuCGOwnEzc-qcBKz9LzAxzAhMVF/view?usp=drive_link" target="_blank" rel="noreferrer">
+          Raakamateriaali – vain linkin haltijoille: Kuka minä olen
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="section section-music" id="tapahtumat">
     <div class="container">
       <h2 class="section-title">Tapahtumat</h2>
@@ -51,7 +68,7 @@ import AuroraBackground from '../components/AuroraBackground.astro';
 
   <section class="section section-music" id="aanimuotokuva">
     <div class="container">
-      <h2 class="section-title">Äänimuotokuva</h2>
+      <h2 class="section-title">Häivä-art</h2>
       <div class="prose">
         <p>
           Äänimuotokuva on tutkiva taiteellinen projekti, joka perustuu ihmisen kohtaamiselle ja syvälle,
@@ -149,12 +166,13 @@ import AuroraBackground from '../components/AuroraBackground.astro';
     padding: clamp(4rem, 12vw, 8rem) 1.5rem clamp(3rem, 8vw, 5rem);
     text-align: center;
   }
-  .hero-title {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 300;
-    letter-spacing: 0.2em;
+  .hero-logo {
+    width: clamp(100px, 20vw, 160px);
+    height: auto;
     margin: 0 0 0.5rem;
-    color: rgba(255, 255, 255, 0.98);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .hero-tagline {
     font-size: clamp(0.85rem, 2vw, 1rem);
@@ -243,5 +261,40 @@ import AuroraBackground from '../components/AuroraBackground.astro';
   }
   .ig-embeds {
     display: flex;
+  }
+  .section-band {
+    background: linear-gradient(to bottom, transparent, rgba(10, 12, 25, 0.3));
+  }
+  .band-image {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .band-image img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+  .band-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .band-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  .band-links a:hover {
+    color: rgba(255, 255, 255, 1);
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.05);
   }
 </style>
